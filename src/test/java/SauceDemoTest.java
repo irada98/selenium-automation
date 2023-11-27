@@ -1,6 +1,7 @@
 import lombok.extern.slf4j.Slf4j;
 import lv.acodemy.page_object.SauceDemoObject;
 import lv.acodemy.utils.LocalDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -13,12 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class SauceDemoTest {
 
-    WebDriverWait wait = new WebDriverWait(getInstance(),
+    WebDriver driver = LocalDriverManager.getInstance();
+    WebDriverWait wait = new WebDriverWait(driver,
             ofSeconds(getConfiguration().getLong("wait.time")));
     SauceDemoObject sauceDemoObject = new SauceDemoObject(wait);
 
-    @Test
-    public void createSauceDemoTest1() {
+    @Test(description = "Positive login test")
+    public void testLogin() {
         getInstance().manage()
                 .timeouts()
                 .implicitlyWait(ofSeconds(getConfiguration().getLong("wait.time")));
@@ -41,7 +43,7 @@ public class SauceDemoTest {
     }
 
     @Test
-    public void createSauceDemoTest2() {
+    public void testLoginNegative() {
         getInstance().manage()
                 .timeouts()
                 .implicitlyWait(ofSeconds(getConfiguration().getLong("wait.time")));

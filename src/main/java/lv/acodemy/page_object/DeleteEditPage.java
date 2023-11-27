@@ -2,8 +2,8 @@ package lv.acodemy.page_object;
 
 import lv.acodemy.utils.LocalDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +15,7 @@ public class DeleteEditPage {
             "//*[@id=\"root\"]/section/section/main/div/div/div/div/div/div[2]/div/table/tbody/tr[2]/td[6]/div/label[2]");
     private final By notificationWindow = By.className("ant-popover-content");
     private final By buttons = By.className("ant-popconfirm-buttons");
-    ChromeDriver driver = LocalDriverManager.getInstance();
+    WebDriver driver = LocalDriverManager.getInstance();
     WebDriverWait waiter;
 
     public DeleteEditPage(WebDriverWait waiter) {

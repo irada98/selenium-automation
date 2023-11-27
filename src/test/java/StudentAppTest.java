@@ -2,7 +2,6 @@ import com.github.javafaker.Faker;
 import lombok.extern.slf4j.Slf4j;
 import lv.acodemy.page_object.*;
 import lv.acodemy.utils.LocalDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -22,6 +21,7 @@ public class StudentAppTest {
     Notifications notifications = new Notifications(wait);
     ErrorMessage errorMessage = new ErrorMessage(wait);
     DeleteEditPage deleteEditPage = new DeleteEditPage(wait);
+
     @Test
     public void createStudentTest() {
         getInstance().manage()
@@ -45,7 +45,7 @@ public class StudentAppTest {
     }
 
     @Test
-    public void createStudentTestErrorChecks() {
+    public void studentTestErrorChecks() {
         getInstance().manage()
                 .timeouts()
                 .implicitlyWait(ofSeconds(getConfiguration().getLong("wait.time")));
@@ -91,7 +91,7 @@ public class StudentAppTest {
         getInstance().get(getConfiguration().getString("app.url"));
         // EDIT the user
         deleteEditPage.findFirstUserEdit();
-        LocalDriverManager.getInstance().findElement(By.id("name")).clear();
+        addStudentPage.clearNameField();
         addStudentPage.setNameField(fakeData.name().fullName());
         addStudentPage.submitStudent();
 

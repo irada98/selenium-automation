@@ -2,11 +2,12 @@ package lv.acodemy.page_object;
 
 import lv.acodemy.utils.LocalDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 
 public class AddStudentPage {
 
-    ChromeDriver driver = LocalDriverManager.getInstance();
+    WebDriver driver = LocalDriverManager.getInstance();
 
 
     private final By nameField = By.id("name");
@@ -21,6 +22,13 @@ public class AddStudentPage {
     public void setEmailField(String input) {
         driver.findElement(emailField).sendKeys(input);
     }
+
+    public void clearNameField() {
+        while (!driver.findElement(nameField).equals("")) {
+            driver.findElement(nameField).sendKeys(Keys.BACK_SPACE);
+        }
+    }
+
 
     public void setGender(String genderValue) {
         driver.findElement(By.id("gender")).click();

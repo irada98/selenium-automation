@@ -2,8 +2,8 @@ package lv.acodemy.page_object;
 
 import lv.acodemy.utils.LocalDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,8 +16,9 @@ public class SauceDemoObject {
     private final By logoutButton = By.id("logout_sidebar_link");
     private final By productsLabel = By.className("product_label");
     private final By loginBox = By.className("login-box");
-    ChromeDriver driver = LocalDriverManager.getInstance();
+    WebDriver driver = LocalDriverManager.getInstance();
     WebDriverWait waiter;
+
     public SauceDemoObject(WebDriverWait waiter) {
         this.waiter = waiter;
     }
