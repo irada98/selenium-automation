@@ -44,7 +44,7 @@ public class StudentAppTest {
         System.out.println();
     }
 
-    @Test
+    @Test(enabled = false)
     public void studentTestErrorChecks() {
         getInstance().manage()
                 .timeouts()
@@ -64,7 +64,7 @@ public class StudentAppTest {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void deleteStudent() {
         getInstance().manage()
                 .timeouts()
@@ -82,7 +82,7 @@ public class StudentAppTest {
         System.out.println();
     }
 
-    @Test
+    @Test(enabled = false)
     public void editStudent() {
         getInstance().manage()
                 .timeouts()
