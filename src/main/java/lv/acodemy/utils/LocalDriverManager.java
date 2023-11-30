@@ -43,7 +43,7 @@ public class LocalDriverManager {
         sauceOptions.put("username", "oauth-irada.rzaeva.98-34539");
         sauceOptions.put("accessKey", "673eae92-28bc-4f18-a206-b1497f4b19a5");
         sauceOptions.put("build", "selenium-build-GARLE");
-        sauceOptions.put("name", "SauceDemoTest");
+        sauceOptions.put("name", "Test");
         browserOptions.setCapability("sauce:options", sauceOptions);
 
         URL url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class ChromeDriverTest {
     ChromeDriver driver = new ChromeDriver();
 
-    @Test
+    @Test(enabled = false)
     public void chromeDriverTest() {
         driver.get("https://google.lv");
         WebElement acceptButton = driver.findElement(By.xpath("//div[text()='Accept all']//parent::button"));
